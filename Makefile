@@ -1,4 +1,4 @@
-DIRS = include lib myapp
+DIRS = sound action main 
 .PHONY : all clean
 
 all :
