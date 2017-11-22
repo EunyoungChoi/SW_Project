@@ -3,7 +3,7 @@
 
 int bonus()
 {
-    int random = 0;
-    random = rand()%5+2;
+    int random=0;
+    random = rand()%9+2;
     return random;
 }
