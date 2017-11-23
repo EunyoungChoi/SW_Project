@@ -17,4 +17,6 @@ void *play(void *arg)
    {
      playmusic(3);
    }
+
+   return NULL;
 }
