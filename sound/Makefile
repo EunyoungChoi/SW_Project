@@ -1,5 +1,6 @@
 OUTPUT = libfuncs.a
 OBJECT = playmusic.o
+GCC = gcc -c
 .PHONY:clean
 
 $(OUTPUT): $(OBJECT)
@@ -7,7 +8,7 @@ $(OUTPUT): $(OBJECT)
 
 
 $(OBJECT): playmusic.c
-	gcc -c playmusic.c -o playmusic.o
+	$(GCC) playmusic.c -o $(OBJECT)
 
 clean:
 	rm -f $(OBJECT) $(OUTPUT)
