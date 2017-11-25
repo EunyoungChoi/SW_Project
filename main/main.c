@@ -1,5 +1,11 @@
 #include<stdio.h>
 #include"playmusic.h"
+#include "bonus.h"
+#include<gtk/gtk.h>
+
+GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
+
+
 
 
 int flag;
