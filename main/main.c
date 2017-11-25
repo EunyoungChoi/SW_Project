@@ -20,3 +20,19 @@ void *play(void *arg)
 
    return NULL;
 }
+
+void music1()
+{
+   int result;
+   flag = 1;
+}
+void music2()
+{
+   int result;
+   flag = 2;
+}
+void music3()
+{
+   int result;
+   flag = 3;
+}
