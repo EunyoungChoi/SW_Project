@@ -42,3 +42,17 @@ void music3()
    int result;
    flag = 3;
 }
+
+
+int main(int argc,char *argv[])
+{
+    GtkWidget* window;
+
+
+
+    gtk_init(&argc,&arg);
+    
+    gtk_init(NULL,NULL);
+
+    window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+}
