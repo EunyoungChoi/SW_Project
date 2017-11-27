@@ -30,16 +30,25 @@ void *play(void *arg)
 void music1()
 {
    int result;
+   pthread_t mythread;
    flag = 1;
+   result = pthread_create(&mythread,NULL,play,NULL);
 }
 void music2()
 {
    int result;
+   pthread_t mythread;
+   result = pthread_create(&mythread,NULL,play,NULL);
+
    flag = 2;
+
 }
 void music3()
 {
    int result;
+   pthread_t mytread
+   result = pthread_create(&mythread,NULL,play,NULL);
+
    flag = 3;
 }
 
