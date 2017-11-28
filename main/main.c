@@ -63,15 +63,24 @@ void music3()
    flag = 3;
 }
 
+void buttonClick(GtkWidget *widget)
+{
+}
+
+
+
 
 int main(int argc,char *argv[])
 {
     GtkWidget* window;
 
-
+    GtkWidget *box1;
+    GtkWidget *box2;
+    GtkWidget *box3;
+    GtkWidget *box4;
 
     gtk_init(&argc,&arg);
-    
+
     gtk_init(NULL,NULL);
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
