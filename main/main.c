@@ -7,6 +7,7 @@ GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 
 
 
+int button_push=0; // check button
 
 int flag;
 void *play(void *arg)
@@ -65,6 +66,36 @@ void music3()
 
 void buttonClick(GtkWidget *widget)
 {
+     switch(widget)
+     {
+          case bu1:
+                button_push = 1;
+                break;
+          case bu2:
+                button_push = 2;
+                break;
+          case bu3:
+                button_push = 3;
+                break;
+          case bu4:
+                button_push = 4;
+                break;
+          case bu5:
+                button_push = 5;
+                break;
+          case bu6:
+                button_push = 6;
+                break;
+          case bu7:
+                button_push = 7;
+                break;
+          case bu8:
+                button_push = 8;
+                break;
+     }
+     clear();
+
+
 }
 
 
