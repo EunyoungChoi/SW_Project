@@ -23,8 +23,19 @@ void *play(void *arg)
    {
      playmusic(3);
    }
-
    return NULL;
+}
+
+void clear()
+{
+    gtk_button_set_label(GTK_BUTTON(bu1),"");
+    gtk_button_set_label(GTK_BUTTON(bu2),"");
+    gtk_button_set_label(GTK_BUTTON(bu3),"");
+    gtk_button_set_label(GTK_BUTTON(bu4),"");
+    gtk_button_set_label(GTK_BUTTON(bu5),"");
+    gtk_button_set_label(GTK_BUTTON(bu6),"");
+    gtk_button_set_label(GTK_BUTTON(bu7),"");
+    gtk_button_set_label(GTK_BUTTON(bu8),"");
 }
 
 void music1()
