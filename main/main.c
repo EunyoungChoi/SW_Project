@@ -41,14 +41,18 @@ void clear()
     gtk_button_set_label(GTK_BUTTON(bu8),"");
 }
 
+int ddg()
+{
+}
+
 void music1()
 {
-   int result;
+   int pc_return;
    pthread_t mythread;
    flag = 1;
-   result = pthread_create(&mythread,NULL,play,NULL);
+   pc_return = pthread_create(&mythread,NULL,play,NULL);
 
-   if(result)
+   if(pc_return != 0)
    {
      perror("pthread_creat");
      result(1);
@@ -57,13 +61,13 @@ void music1()
 }
 void music2()
 {
-   int result;
+   int pc_return;
    pthread_t mythread;
-   result = pthread_create(&mythread,NULL,play,NULL);
+   pc_return = pthread_create(&mythread,NULL,play,NULL);
 
    flag = 2;
 
-   if(result)
+   if(pc_return != 0)
    {
      perror("pthread_creat");
      exit(1);
@@ -73,13 +77,13 @@ void music2()
 }
 void music3()
 {
-   int result;
+   int pc_return;
    pthread_t mytread
-   result = pthread_create(&mythread,NULL,play,NULL);
+   pc_return = pthread_create(&mythread,NULL,play,NULL);
 
    flag = 3;
 
-   if(result)
+   if(pc_return != 0)
    {
      perror("pthread_creat");
      exit(1);
