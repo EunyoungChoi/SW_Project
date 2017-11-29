@@ -2,6 +2,8 @@
 #include"playmusic.h"
 #include "bonus.h"
 #include<gtk/gtk.h>
+#include<stdlib.h>
+#include<pthread.h>
 
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 
@@ -9,7 +11,7 @@ GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 
 int button_push=0; // check button
 
-int flag;
+int flag = 0;  //music select flag
 void *play(void *arg)
 {
    if(flag == 1)
@@ -45,6 +47,10 @@ void music1()
    pthread_t mythread;
    flag = 1;
    result = pthread_create(&mythread,NULL,play,NULL);
+
+   if(result)
+   {
+   }
 }
 void music2()
 {
@@ -54,6 +60,10 @@ void music2()
 
    flag = 2;
 
+   if(result)
+   {
+   }
+
 }
 void music3()
 {
@@ -62,6 +72,10 @@ void music3()
    result = pthread_create(&mythread,NULL,play,NULL);
 
    flag = 3;
+
+   if(result)
+   {
+   }
 }
 
 void buttonClick(GtkWidget *widget)
