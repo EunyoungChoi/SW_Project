@@ -50,7 +50,10 @@ void music1()
 
    if(result)
    {
+     perror("pthread_creat");
+     result(1);
    }
+   //write music 1 name
 }
 void music2()
 {
@@ -62,7 +65,10 @@ void music2()
 
    if(result)
    {
+     perror("pthread_creat");
+     exit(1);
    }
+   //write music 2 name
 
 }
 void music3()
@@ -75,7 +81,10 @@ void music3()
 
    if(result)
    {
+     perror("pthread_creat");
+     exit(1);
    }
+   //write music 3 name
 }
 
 void buttonClick(GtkWidget *widget)
