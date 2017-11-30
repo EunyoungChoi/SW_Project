@@ -13,6 +13,7 @@ int score = 0;
 int game_over = 0;
 int button_push=0; // check button
 
+int bonus = 0; //bonus
 int flag = 0;  //music select flag
 void *play(void *arg)
 {
@@ -91,6 +92,16 @@ void music3()
      exit(1);
    }
    //write music 3 name
+}
+
+void setAnswer()
+{
+   if(number == button_push)
+   {
+     if(bonus<10 || (bonus%10)!=0)
+     {
+     }
+   }
 }
 
 void buttonClick(GtkWidget *widget)
