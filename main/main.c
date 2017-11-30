@@ -8,6 +8,7 @@
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 GtkWidget *score,*level1,*level2,*level3,*label;
 
+char namebuf[100];
 int number = 0;
 int score = 0;
 int game_over = 0;
@@ -58,9 +59,9 @@ void music1()
    if(pc_return != 0)
    {
      perror("pthread_creat");
-     result(1);
+     exit(1);
    }
-   //write music 1 name
+   sprintf(namebuf, "music 1");//write music 1 name
 }
 void music2()
 {
@@ -75,7 +76,7 @@ void music2()
      perror("pthread_creat");
      exit(1);
    }
-   //write music 2 name
+   sprintf(namebuf, "music 2");//write music 2 name
 
 }
 void music3()
@@ -91,10 +92,10 @@ void music3()
      perror("pthread_creat");
      exit(1);
    }
-   //write music 3 name
+   sprintf(namebuf, "music 3");//write music 3 name
 }
 
-void setAnswer()
+void score_bonus()
 {
    if(number == button_push)
    {
