@@ -6,10 +6,11 @@
 #include<pthread.h>
 
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
-GtkWidget *score,*s1,*s2,*s3,*label;
+GtkWidget *score,*level1,*level2,*level3,*label;
 
-
-
+int number = 0;
+int score = 0;
+int game_over = 0;
 int button_push=0; // check button
 
 int flag = 0;  //music select flag
@@ -163,5 +164,9 @@ int main(int argc,char *argv[])
     bu6 = gtk_button_new_with_label(" ");
     bu7 = gtk_button_new_with_label(" ");
     bu8 = gtk_button_new_with_label(" ");
+
+    level1 = gtk_button_new_with_label("Level 1");
+    level2 = gtk_button_new_with_label("Level 2");
+    level3 = gtk_button_new_with_label("Level 3");
 
 }
