@@ -150,4 +150,18 @@ int main(int argc,char *argv[])
     box_h2 = gtk_hbox_new(TRUE,0);
     box_h3 = gtk_hbox_new(TRUE,0);
 
+
+    label1 = gtk_label_new("PIANO GAME");
+    gtk_widget_set_size_request(label1,350,10);
+
+    bu1 = gtk_button_new_with_label(" ");
+    gtk_widget_set_usize(GTK_WIDGET(bu1),30,100);
+    bu2 = gtk_button_new_with_label(" ");
+    bu3 = gtk_button_new_with_label(" ");
+    bu4 = gtk_button_new_with_label(" ");
+    bu5 = gtk_button_new_with_label(" ");
+    bu6 = gtk_button_new_with_label(" ");
+    bu7 = gtk_button_new_with_label(" ");
+    bu8 = gtk_button_new_with_label(" ");
+
 }
