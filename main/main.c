@@ -2,6 +2,8 @@
 #include"playmusic.h"
 #include "bonus.h"
 #include<gtk/gtk.h>
+#include<stdlib.h>
+#include<pthread.h>
 
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 GtkWidget *score,*s1,*s2,*s3,*label;
@@ -10,7 +12,7 @@ GtkWidget *score,*s1,*s2,*s3,*label;
 
 int button_push=0; // check button
 
-int flag;
+int flag = 0;  //music select flag
 void *play(void *arg)
 {
    if(flag == 1)
@@ -40,29 +42,54 @@ void clear()
     gtk_button_set_label(GTK_BUTTON(bu8),"");
 }
 
+int ddg()
+{
+}
+
 void music1()
 {
-   int result;
+   int pc_return;
    pthread_t mythread;
    flag = 1;
-   result = pthread_create(&mythread,NULL,play,NULL);
+   pc_return = pthread_create(&mythread,NULL,play,NULL);
+
+   if(pc_return != 0)
+   {
+     perror("pthread_creat");
+     result(1);
+   }
+   //write music 1 name
 }
 void music2()
 {
-   int result;
+   int pc_return;
    pthread_t mythread;
-   result = pthread_create(&mythread,NULL,play,NULL);
+   pc_return = pthread_create(&mythread,NULL,play,NULL);
 
    flag = 2;
+
+   if(pc_return != 0)
+   {
+     perror("pthread_creat");
+     exit(1);
+   }
+   //write music 2 name
 
 }
 void music3()
 {
-   int result;
+   int pc_return;
    pthread_t mytread
-   result = pthread_create(&mythread,NULL,play,NULL);
+   pc_return = pthread_create(&mythread,NULL,play,NULL);
 
    flag = 3;
+
+   if(pc_return != 0)
+   {
+     perror("pthread_creat");
+     exit(1);
+   }
+   //write music 3 name
 }
 
 void buttonClick(GtkWidget *widget)
