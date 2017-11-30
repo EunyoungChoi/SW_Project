@@ -4,6 +4,7 @@
 #include<gtk/gtk.h>
 
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
+GtkWidget *score,*s1,*s2,*s3,*label;
 
 
 
@@ -105,14 +106,21 @@ int main(int argc,char *argv[])
 {
     GtkWidget* window;
 
-    GtkWidget *box1;
-    GtkWidget *box2;
-    GtkWidget *box3;
-    GtkWidget *box4;
+    GtkWidget *box_v1;
+    GtkWidget *box_h2;
+    GtkWidget *box_h3;
+    GtkWidget *box_h4;
 
     gtk_init(&argc,&arg);
 
     gtk_init(NULL,NULL);
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    g_signal_connect(G_OBJECT(window),"destory",G_CALLBACK(gtk_main_quit),NULL);
+
+    box_v1 = gtk_vbox_new(TRUE,0);
+    box_h1 = gtk_hbox_new(TRUE,0);
+    box_h2 = gtk_hbox_new(TRUE,0);
+    box_h3 = gtk_hbox_new(TRUE,0);
+
 }
