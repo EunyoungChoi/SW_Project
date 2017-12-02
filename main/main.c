@@ -9,6 +9,7 @@ GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 GtkWidget *score,*level1,*level2,*level3,*label;
 
 char namebuf[100];
+char gamebuf[100];
 int number = 0;
 int score = 0;
 int game_over = 0;
@@ -62,6 +63,7 @@ void music1()
      exit(1);
    }
    sprintf(namebuf, "music 1");//write music 1 name
+   sprintf(gamebuf, "Game Start");//announced game start
 }
 void music2()
 {
@@ -77,7 +79,7 @@ void music2()
      exit(1);
    }
    sprintf(namebuf, "music 2");//write music 2 name
-
+   sprintf(gamebuf, "Game Start");//announced game start
 }
 void music3()
 {
@@ -93,6 +95,7 @@ void music3()
      exit(1);
    }
    sprintf(namebuf, "music 3");//write music 3 name
+   sprintf(gamebuf, "Game Start");//announced game start
 }
 
 void score_bonus()
