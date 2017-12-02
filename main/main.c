@@ -17,6 +17,12 @@ int button_push=0; // check button
 
 int bonus = 0; //bonus
 int flag = 0;  //music select flag
+
+int end1=0;
+int end2=0;
+int end3=0;  //end timer
+
+
 void *play(void *arg)
 {
    if(flag == 1)
@@ -48,6 +54,18 @@ void clear()
 
 int ddg()
 {
+   if(flag==1)
+   {
+     end1++;
+   }
+   else if(flag==2)
+   {
+     end2++;
+   }
+   else if(flag==3)
+   {
+     end3++;
+   }
 }
 
 void music1()
