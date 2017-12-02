@@ -160,6 +160,27 @@ void buttonClick(GtkWidget *widget)
 
 }
 
+void setAnswer()
+{
+    int plus = 0;
+    if(num == button_push)
+    {
+          if(bonus<10 || (bonus%10!=0))
+          {
+                number=0;
+                score++;
+                sprintf(buf,"Score : %d",%score);
+                gtk_label_set_text(GTK_LABEL(bscore),buf);
+          }
+          else if((bonus>=10) && (bonus%10)==0)
+          {
+
+          }
+    }
+
+}
+
+
 
 
 
