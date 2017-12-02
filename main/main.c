@@ -1,4 +1,4 @@
-git#include<stdio.h>
+#include<stdio.h>
 #include"playmusic.h"
 #include "bonus.h"
 #include<gtk/gtk.h>
@@ -8,6 +8,8 @@ git#include<stdio.h>
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 GtkWidget *bscore,*level1,*level2,*level3,*label;
 
+char buf[100];
+char buf2[100];
 char namebuf[100];
 char gamebuf[100];
 int number = 0;
@@ -174,10 +176,18 @@ void setAnswer()
           }
           else if((bonus>=10) && (bonus%10)==0)
           {
-
+                plus = bonus();
+                num = 0;
+                score = plus+score;
+                sprintf(buf,"*Bonus + %d*",plus);
+                gtk_label_set_text(GTK_LABEL(bscore),buf);
           }
     }
-
+    else if(num!=button_push)
+    {
+          num =0;
+          stop = 1;
+    }
 }
 
 
