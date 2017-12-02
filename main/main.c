@@ -1,4 +1,4 @@
-#include<stdio.h>
+git#include<stdio.h>
 #include"playmusic.h"
 #include "bonus.h"
 #include<gtk/gtk.h>
@@ -6,7 +6,7 @@
 #include<pthread.h>
 
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
-GtkWidget *score,*level1,*level2,*level3,*label;
+GtkWidget *bscore,*level1,*level2,*level3,*label;
 
 char namebuf[100];
 char gamebuf[100];
@@ -201,5 +201,11 @@ int main(int argc,char *argv[])
     level1 = gtk_button_new_with_label("Level 1");
     level2 = gtk_button_new_with_label("Level 2");
     level3 = gtk_button_new_with_label("Level 3");
+
+
+    bscore = gtk_label_new("Score");
+    output = gtk_label_new("Music");
+
+
 
 }
