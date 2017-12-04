@@ -68,6 +68,21 @@ int ddg()
    {
      end3++;
    }
+
+   bonus++;
+   clear();
+   srand((unsigned)time(0));
+   num = rand()%8+1;
+
+   if(game_over == 1)
+   {
+        game_over = 0;
+        bonus = 0;
+        sprintf(buf,"GAME OVER");
+        gtk_label_set_text(STK_LABEL(label1),buf);
+        return 0;
+   }
+
 }
 
 void music1()
