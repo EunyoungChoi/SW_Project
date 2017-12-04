@@ -82,7 +82,54 @@ int ddg()
         gtk_label_set_text(STK_LABEL(label1),buf);
         return 0;
    }
+   if(end1==54 || end2==34 || end3==99)
+   {
+        game_over = 0;
+        bonus = 0;
+        end1 = 0;
+        end2 = 0;
+        end3 = 0;
+        sprintf(buf,"GAME OVER");
+        gtk_label_set_text(STK_LABEL(label1),buf);
+        return 0;
+   }
+   if(num == 1)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu1),"*");
+   }
+   else if(num == 2)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu2),"*");
+   }
+   else if(num == 3
+   {
+        gtk_button_set_label(GTK_BUTTON(bu3),"*");
+   }
+   if(num == 4)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu4),"*");
+   }
+   if(num == 5)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu5),"*");
+   }
+   if(num == 6)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu6),"*");
+   }
+   if(num == 7)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu7),"*");
+   }
+   if(num == 8)
+   {
+        gtk_button_set_label(GTK_BUTTON(bu8),"*");
+   }
 
+   if(game_over != 10)
+   {
+         return 1;
+   }
 }
 
 void music1()
