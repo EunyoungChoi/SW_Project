@@ -145,7 +145,7 @@ void music1()
      exit(1);
    }
    g_timeout_add(2000,button_func,0);
-   sprintf(namebuf, "music 1");//write music 1 name
+   sprintf(namebuf, "Smash it");//write music 1 name
    sprintf(gamebuf, "Game Start");//announced game start
 }
 void music2()
