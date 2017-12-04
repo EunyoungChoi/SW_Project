@@ -54,7 +54,7 @@ void clear()
     gtk_button_set_label(GTK_BUTTON(bu8),"");
 }
 
-int ddg()
+int button_func()
 {
    if(flag==1)
    {
@@ -144,6 +144,7 @@ void music1()
      perror("pthread_creat");
      exit(1);
    }
+   g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "music 1");//write music 1 name
    sprintf(gamebuf, "Game Start");//announced game start
 }
@@ -160,6 +161,7 @@ void music2()
      perror("pthread_creat");
      exit(1);
    }
+   g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "music 2");//write music 2 name
    sprintf(gamebuf, "Game Start");//announced game start
 }
@@ -176,6 +178,7 @@ void music3()
      perror("pthread_creat");
      exit(1);
    }
+   g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "music 3");//write music 3 name
    sprintf(gamebuf, "Game Start");//announced game start
 }
