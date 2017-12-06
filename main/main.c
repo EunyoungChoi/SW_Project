@@ -312,7 +312,11 @@ int main(int argc,char *argv[])
     g_signal_connect(G_OBJECT(bu8),"clicked",G_CALLBACK(buttonclick),NULL);
 
 
+    g_signal_connect(G_OBJECT(level1),"clicked",G_CALLBACK(music1),NULL);
+    g_signal_connect(G_OBJECT(level2),"clicked",G_CALLBACK(music2),NULL);
+    g_signal_connect(G_OBJECT(level3),"clicked",G_CALLBACK(music3),NULL);
 
+    gtk_container_add(GTK_CONTAINER(box_v1),label);
 
 }
 
