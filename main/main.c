@@ -302,6 +302,17 @@ int main(int argc,char *argv[])
     bscore = gtk_label_new("Score");
     output = gtk_label_new("Music");
 
+    g_signal_connect(G_OBJECT(bu1),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu2),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu3),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu4),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu5),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu6),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu7),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu8),"clicked",G_CALLBACK(buttonclick),NULL);
+
+
 
 
 }
+
