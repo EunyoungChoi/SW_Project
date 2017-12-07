@@ -79,8 +79,8 @@ int button_func()
    {
         game_over = 0;
         bonus = 0;
-        sprintf(buf,"GAME OVER");
-        gtk_label_set_text(STK_LABEL(label1),buf);
+        sprintf(namebuf,"GAME OVER");
+        gtk_label_set_text(STK_LABEL(label1),namebuf);
         return 0;
    }
    if(end1==54 || end2==34 || end3==99)
@@ -90,8 +90,8 @@ int button_func()
         end1 = 0;
         end2 = 0;
         end3 = 0;
-        sprintf(buf,"GAME CLEAR");
-        gtk_label_set_text(GTK_LABEL(label1),buf);
+        sprintf(namebuf,"GAME CLEAR");
+        gtk_label_set_text(GTK_LABEL(label1),namebuf);
         return 0;
    }
    if(num == 1)
@@ -147,7 +147,7 @@ void music1()
    }
    g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "Smash it");//write music 1 name
-   gtk_label_set_text(GTK_LABEL(out), namebuf);
+   gtk_label_set_text(GTK_LABEL(output), namebuf);
    sprintf(gamebuf, "Game Start");//announced game start
    gtk_label_set_text(GTK_LABEL(label1), gamebuf);
 
@@ -167,8 +167,8 @@ void music2()
      exit(1);
    }
    g_timeout_add(2000,button_func,0);
-   sprintf(namebuf, "music 2");//write music 2 name
-   gtk_label_set_text(GTK_LABEL(out), namebuf);
+   sprintf(namebuf, "They don't care");//write music 2 name
+   gtk_label_set_text(GTK_LABEL(output), namebuf);
 
    sprintf(gamebuf, "Game Start");//announced game start
    gtk_label_set_text(GTK_LABEL(label1), gamebuf);
@@ -189,8 +189,8 @@ void music3()
      exit(1);
    }
    g_timeout_add(2000,button_func,0);
-   sprintf(namebuf, "music 3");//write music 3 name
-   gtk_label_set_text(GTK_LABEL(out), namebuf);
+   sprintf(namebuf, "summer");//write music 3 name
+   gtk_label_set_text(GTK_LABEL(output), namebuf);
 
 
    sprintf(gamebuf, "Game Start");//announced game start
@@ -200,11 +200,30 @@ void music3()
 
 void score_bonus()
 {
+   int plus = 0;
    if(number == button_push)
    {
      if(bonus<10 || (bonus%10)!=0)
      {
+	number = 0;
+	score++;
+	sprintf(namebuf, "Score : %d",score);
+	gtk_label_set_text(GTK_LABEL(bscore),namebuf);
      }
+     else if(bonus>=10 && bonus%10 == 0)
+     {
+	plus = bonus();
+	number = 0;
+	score = plus + score;
+	sprintf(namebuf, "BONUS + %d",plus);
+	gtk_label_set_text(GTK_LABEL(bscore),namebuf);
+     }
+   }
+
+   else if(number != button_push)
+   {
+     number = 0;
+     gameover = 1;
    }
 }
 
@@ -241,37 +260,6 @@ void buttonClick(GtkWidget *widget)
 
 
 }
-
-void setAnswer()
-{
-    int plus = 0;
-    if(num == button_push)
-    {
-          if(bonus<10 || (bonus%10!=0))
-          {
-                number=0;
-                score++;
-                sprintf(buf,"Score : %d",%score);
-                gtk_label_set_text(GTK_LABEL(bscore),buf);
-          }
-          else if((bonus>=10) && (bonus%10)==0)
-          {
-                plus = bonus();
-                num = 0;
-                score = plus+score;
-                sprintf(buf,"*Bonus + %d*",plus);
-                gtk_label_set_text(GTK_LABEL(bscore),buf);
-          }
-    }
-    else if(num!=button_push)
-    {
-          num =0;
-          stop = 1;
-    }
-}
-
-
-
 
 
 int main(int argc,char *argv[])
