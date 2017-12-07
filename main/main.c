@@ -24,6 +24,7 @@ int end1=0;
 int end2=0;
 int end3=0;  //end timer
 
+gint on_timer(gpointer data);
 
 void *play(void *arg)
 {
@@ -89,8 +90,8 @@ int button_func()
         end1 = 0;
         end2 = 0;
         end3 = 0;
-        sprintf(buf,"GAME OVER");
-        gtk_label_set_text(STK_LABEL(label1),buf);
+        sprintf(buf,"GAME CLEAR");
+        gtk_label_set_text(GTK_LABEL(label1),buf);
         return 0;
    }
    if(num == 1)
@@ -105,23 +106,23 @@ int button_func()
    {
         gtk_button_set_label(GTK_BUTTON(bu3),"*");
    }
-   if(num == 4)
+   else if(num == 4)
    {
         gtk_button_set_label(GTK_BUTTON(bu4),"*");
    }
-   if(num == 5)
+   else if(num == 5)
    {
         gtk_button_set_label(GTK_BUTTON(bu5),"*");
    }
-   if(num == 6)
+   else if(num == 6)
    {
         gtk_button_set_label(GTK_BUTTON(bu6),"*");
    }
-   if(num == 7)
+   else if(num == 7)
    {
         gtk_button_set_label(GTK_BUTTON(bu7),"*");
    }
-   if(num == 8)
+   else if(num == 8)
    {
         gtk_button_set_label(GTK_BUTTON(bu8),"*");
    }
@@ -146,8 +147,12 @@ void music1()
    }
    g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "Smash it");//write music 1 name
+   gtk_label_set_text(GTK_LABEL(out), namebuf);
    sprintf(gamebuf, "Game Start");//announced game start
+   gtk_label_set_text(GTK_LABEL(label1), gamebuf);
+
 }
+
 void music2()
 {
    int pc_return;
@@ -163,8 +168,13 @@ void music2()
    }
    g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "music 2");//write music 2 name
+   gtk_label_set_text(GTK_LABEL(out), namebuf);
+
    sprintf(gamebuf, "Game Start");//announced game start
+   gtk_label_set_text(GTK_LABEL(label1), gamebuf);
+
 }
+
 void music3()
 {
    int pc_return;
@@ -180,7 +190,12 @@ void music3()
    }
    g_timeout_add(2000,button_func,0);
    sprintf(namebuf, "music 3");//write music 3 name
+   gtk_label_set_text(GTK_LABEL(out), namebuf);
+
+
    sprintf(gamebuf, "Game Start");//announced game start
+   gtk_label_set_text(GTK_LABEL(label1), gamebuf);
+
 }
 
 void score_bonus()
