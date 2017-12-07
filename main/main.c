@@ -318,5 +318,32 @@ int main(int argc,char *argv[])
 
     gtk_container_add(GTK_CONTAINER(box_v1),label);
 
+    gtk_container_add(GTK_CONTAINER(box_h1),level1);
+    gtk_container_add(GTK_CONTAINER(box_h1),level2);
+    gtk_container_add(GTK_CONTAINER(box_h1),level3);
+    gtk_container_add(GTK_CONTAINER(box_v1),box_h1);
+
+    gtk_container_add(GTK_CONTAINER(box_h3),bu1);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu2);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu3);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu4);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu5);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu6);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu7);
+    gtk_container_add(GTK_CONTAINER(box_h3),bu8);
+    gtk_container_add(GTK_CONTAINER(box_v1),box_h3);
+
+    gtk_container_add(GTK_CONTAINER(box_h2),bscore);
+    gtk_container_add(GTK_CONTAINER(box_h2),output);
+    gtk_container_add(GTK_CONTAINER(box_v1),box_h2);
+
+
+    gtk_container_add(GTK_CONTAINER(window),box_v1);
+    gtk_widget_snow_all(window);
+    gtk_main();
+
+    return 0;
+
+
 }
 
