@@ -4,6 +4,7 @@
 #include<gtk/gtk.h>
 #include<stdlib.h>
 #include<pthread.h>
+#include<time.h>
 
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 GtkWidget *bscore,*level1,*level2,*level3,*label;
@@ -17,7 +18,7 @@ int score = 0;
 int game_over = 0;
 int button_push=0; // check button
 
-int bonus = 0; //bonus
+int bonus_num = 0; //bonus
 int flag = 0;  //music select flag
 
 int end1=0;
@@ -70,59 +71,59 @@ int button_func()
      end3++;
    }
 
-   bonus++;
+   bonus_num++;
    clear();
    srand((unsigned)time(0));
-   num = rand()%8+1;
+   number = rand()%8+1;
 
    if(game_over == 1)
    {
         game_over = 0;
-        bonus = 0;
+        bonus_num = 0;
         sprintf(namebuf,"GAME OVER");
-        gtk_label_set_text(STK_LABEL(label1),namebuf);
+        gtk_label_set_text(STK_LABEL(label),namebuf);
         return 0;
    }
    if(end1==54 || end2==34 || end3==99)
    {
         game_over = 0;
-        bonus = 0;
+        bonus_num = 0;
         end1 = 0;
         end2 = 0;
         end3 = 0;
         sprintf(namebuf,"GAME CLEAR");
-        gtk_label_set_text(GTK_LABEL(label1),namebuf);
+        gtk_label_set_text(GTK_LABEL(label),namebuf);
         return 0;
    }
-   if(num == 1)
+   if(number == 1)
    {
         gtk_button_set_label(GTK_BUTTON(bu1),"*");
    }
-   else if(num == 2)
+   else if(number == 2)
    {
         gtk_button_set_label(GTK_BUTTON(bu2),"*");
    }
-   else if(num == 3
+   else if(number == 3)
    {
         gtk_button_set_label(GTK_BUTTON(bu3),"*");
    }
-   else if(num == 4)
+   else if(number == 4)
    {
         gtk_button_set_label(GTK_BUTTON(bu4),"*");
    }
-   else if(num == 5)
+   else if(number == 5)
    {
         gtk_button_set_label(GTK_BUTTON(bu5),"*");
    }
-   else if(num == 6)
+   else if(number == 6)
    {
         gtk_button_set_label(GTK_BUTTON(bu6),"*");
    }
-   else if(num == 7)
+   else if(number == 7)
    {
         gtk_button_set_label(GTK_BUTTON(bu7),"*");
    }
-   else if(num == 8)
+   else if(number == 8)
    {
         gtk_button_set_label(GTK_BUTTON(bu8),"*");
    }
@@ -149,7 +150,7 @@ void music1()
    sprintf(namebuf, "Smash it");//write music 1 name
    gtk_label_set_text(GTK_LABEL(output), namebuf);
    sprintf(gamebuf, "Game Start");//announced game start
-   gtk_label_set_text(GTK_LABEL(label1), gamebuf);
+   gtk_label_set_text(GTK_LABEL(label), gamebuf);
 
 }
 
@@ -171,14 +172,14 @@ void music2()
    gtk_label_set_text(GTK_LABEL(output), namebuf);
 
    sprintf(gamebuf, "Game Start");//announced game start
-   gtk_label_set_text(GTK_LABEL(label1), gamebuf);
+   gtk_label_set_text(GTK_LABEL(label), gamebuf);
 
 }
 
 void music3()
 {
    int pc_return;
-   pthread_t mytread
+   pthread_t mythread;
    pc_return = pthread_create(&mythread,NULL,play,NULL);
 
    flag = 3;
@@ -194,7 +195,7 @@ void music3()
 
 
    sprintf(gamebuf, "Game Start");//announced game start
-   gtk_label_set_text(GTK_LABEL(label1), gamebuf);
+   gtk_label_set_text(GTK_LABEL(label), gamebuf);
 
 }
 
@@ -203,14 +204,14 @@ void score_bonus()
    int plus = 0;
    if(number == button_push)
    {
-     if(bonus<10 || (bonus%10)!=0)
+     if(bonus_num<10 || (bonus_num%10)!=0)
      {
 	number = 0;
 	score++;
 	sprintf(namebuf, "Score : %d",score);
 	gtk_label_set_text(GTK_LABEL(bscore),namebuf);
      }
-     else if(bonus>=10 && bonus%10 == 0)
+     else if(bonus_num>=10 && bonus_num%10 == 0)
      {
 	plus = bonus();
 	number = 0;
@@ -223,39 +224,28 @@ void score_bonus()
    else if(number != button_push)
    {
      number = 0;
-     gameover = 1;
+     game_over = 1;
    }
 }
 
 void buttonClick(GtkWidget *widget)
 {
-     switch(widget)
-     {
-          case bu1:
-                button_push = 1;
-                break;
-          case bu2:
-                button_push = 2;
-                break;
-          case bu3:
-                button_push = 3;
-                break;
-          case bu4:
-                button_push = 4;
-                break;
-          case bu5:
-                button_push = 5;
-                break;
-          case bu6:
-                button_push = 6;
-                break;
-          case bu7:
-                button_push = 7;
-                break;
-          case bu8:
-                button_push = 8;
-                break;
-     }
+    if(widget == bu1){
+                button_push = 1;}
+    if(widget == bu2){
+                button_push = 2;}
+    if(widget == bu3){
+                button_push = 3;}
+    if(widget == bu4){
+                button_push = 4;}
+    if(widget == bu5){
+                button_push = 5;}
+    if(widget == bu6){
+                button_push = 6;}
+    if(widget == bu7){
+                button_push = 7;}
+    if(widget == bu8){
+                button_push = 8;}
      clear();
 
 
@@ -267,11 +257,11 @@ int main(int argc,char *argv[])
     GtkWidget* window;
 
     GtkWidget *box_v1;
+    GtkWidget *box_h1;
     GtkWidget *box_h2;
     GtkWidget *box_h3;
-    GtkWidget *box_h4;
 
-    gtk_init(&argc,&arg);
+    gtk_init(&argc,&argv);
 
     gtk_init(NULL,NULL);
 
@@ -284,8 +274,8 @@ int main(int argc,char *argv[])
     box_h3 = gtk_hbox_new(TRUE,0);
 
 
-    label1 = gtk_label_new("PIANO GAME");
-    gtk_widget_set_size_request(label1,350,10);
+    label = gtk_label_new("PIANO GAME");
+    gtk_widget_set_size_request(label,350,10);
 
     bu1 = gtk_button_new_with_label(" ");
     gtk_widget_set_usize(GTK_WIDGET(bu1),30,100);
@@ -305,14 +295,14 @@ int main(int argc,char *argv[])
     bscore = gtk_label_new("Score");
     output = gtk_label_new("Music");
 
-    g_signal_connect(G_OBJECT(bu1),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu2),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu3),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu4),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu5),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu6),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu7),"clicked",G_CALLBACK(buttonclick),NULL);
-    g_signal_connect(G_OBJECT(bu8),"clicked",G_CALLBACK(buttonclick),NULL);
+    g_signal_connect(G_OBJECT(bu1),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu2),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu3),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu4),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu5),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu6),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu7),"clicked",G_CALLBACK(buttonClick),NULL);
+    g_signal_connect(G_OBJECT(bu8),"clicked",G_CALLBACK(buttonClick),NULL);
 
 
     g_signal_connect(G_OBJECT(level1),"clicked",G_CALLBACK(music1),NULL);
