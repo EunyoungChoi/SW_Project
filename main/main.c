@@ -9,8 +9,6 @@
 GtkWidget *bu1,*bu2,*bu3,*bu4,*bu5,*bu6,*bu7,*bu8,*output;
 GtkWidget *bscore,*level1,*level2,*level3,*label;
 
-char buf[100];
-char buf2[100];
 char namebuf[100];
 char gamebuf[100];
 int number = 0;
@@ -176,7 +174,7 @@ void music2()
 
 }
 
-void music3()
+void music3()	
 {
    int pc_return;
    pthread_t mythread;
@@ -204,7 +202,7 @@ void score_bonus()
    int plus = 0;
    if(number == button_push)
    {
-     if(bonus_num<10 || (bonus_num%10)!=0)
+     if(bonus_num<10 || bonus_num%10!=0)
      {
 	number = 0;
 	score++;
@@ -232,22 +230,23 @@ void buttonClick(GtkWidget *widget)
 {
     if(widget == bu1){
                 button_push = 1;}
-    if(widget == bu2){
+    else if(widget == bu2){
                 button_push = 2;}
-    if(widget == bu3){
+    else if(widget == bu3){
                 button_push = 3;}
-    if(widget == bu4){
+    else if(widget == bu4){
                 button_push = 4;}
-    if(widget == bu5){
+    else if(widget == bu5){
                 button_push = 5;}
-    if(widget == bu6){
+    else if(widget == bu6){
                 button_push = 6;}
-    if(widget == bu7){
+    else if(widget == bu7){
                 button_push = 7;}
-    if(widget == bu8){
+    else if(widget == bu8){
                 button_push = 8;}
      clear();
-
+     score_bonus();
+     
 
 }
 
@@ -275,7 +274,7 @@ int main(int argc,char *argv[])
 
 
     label = gtk_label_new("PIANO GAME");
-    gtk_widget_set_size_request(label,350,10);
+    gtk_widget_set_size_request(label,400,10);
 
     bu1 = gtk_button_new_with_label(" ");
     gtk_widget_set_usize(GTK_WIDGET(bu1),30,100);
