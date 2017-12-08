@@ -81,7 +81,7 @@ int button_func()
         game_over = 0;
         bonus_num = 0;
         sprintf(namebuf,"GAME OVER");
-        gtk_label_set_text(STK_LABEL(label),namebuf);
+        gtk_label_set_text(GTK_LABEL(label),namebuf);
         return 0;
    }
    if(end1==54 || end2==34 || end3==99)
@@ -332,7 +332,7 @@ int main(int argc,char *argv[])
 
 
     gtk_container_add(GTK_CONTAINER(window),box_v1);
-    gtk_widget_snow_all(window);
+    gtk_widget_show_all(window);
     gtk_main();
 
     return 0;
